@@ -114,14 +114,12 @@ function game() {
     let computerTotal = 0;
     let playerTotal = 0;
 
-    let computerWinCount = computerWins.forEach(value => {
-
-        computerTotal += value;
+    let computerWinCount = computerWins.reduce(function (x,y) {
+        return x + y;
     });
 
-    let playerWinCount = playerWins.forEach(value => {
-
-        playerTotal += value;
+    let playerWinCount = playerWins.reduce(function (x,y) {
+        return x + y;
     });
 
     if (playerWinCount > computerWinCount) {
