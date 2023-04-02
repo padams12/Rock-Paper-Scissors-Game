@@ -79,3 +79,67 @@ function playRound(playerSelection, computerSelection) {
         }
 }
 
+function game() {
+
+    let playerWins = [];
+    let computerWins = [];
+
+    for (let i = 0; i < 5; i ++) {
+
+        let playerChoice = prompt("Choose rock, paper, or scissors: ");
+        let result = playRound(playerChoice, getComputerChoice());
+        console.log(result);
+        result = result.toLowerCase();
+        let winner = result[0];
+
+        if (winner == "c" ) {
+
+            computerWins.push(1);
+        }
+        
+        else if (winner == "p") {
+
+            playerWins.push(1);
+        }
+
+        else {
+
+            computerWins.push(0);
+            playerWins.push(0);
+
+        }
+ 
+    }
+
+    let computerTotal = 0;
+    let playerTotal = 0;
+
+    let computerWinCount = computerWins.forEach(value => {
+
+        computerTotal += value;
+    });
+
+    let playerWinCount = playerWins.forEach(value => {
+
+        playerTotal += value;
+    });
+
+    if (playerWinCount > computerWinCount) {
+
+        console.log(`Player wins the game! Player won ${playerWinCount} rounds and computer won ${computerWinCount} rounds.`);
+        return
+    }
+
+    else if (playerWinCount < computerWinCount) {
+
+        console.log(`Computer wins the game! Computer won ${computerWinCount} rounds and player won ${playerWinCount} rounds.`);
+        return
+    }
+
+    else {
+
+        console.log(`Tie game. Both player and computer each won ${playerWinCount} rounds.`);
+        return
+    }
+}
+
