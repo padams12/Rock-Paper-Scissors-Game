@@ -1,4 +1,5 @@
 const TURN_OPTIONS = ["rock", "paper", "scissors"];
+const gameResultsDiv = document.querySelector("#results");
 
 function getComputerChoice() {
 
@@ -88,13 +89,31 @@ let scissorsButton = document.querySelector("#scissors");
 rockButton.addEventListener("click", () => {
 
     let playerChoice = rockButton.value;
-    let result = playRound(playerChoice);
+    let result = playRound(playerChoice, getComputerChoice());
     let rockResult = document.createElement("p");
     rockResult.textContent = result;
-    
-    
+    gameResultsDiv.appendChild(rockResult);
 
+});
 
+paperButton.addEventListener("click", () => {
+
+    let playerChoice = paperButton.value;
+    let result = playRound(playerChoice, getComputerChoice());
+    let paperResult = document.createElement("p");
+    paperResult.textContent = result;
+    gameResultsDiv.appendChild(paperResult);
+    
+});
+
+scissorsButton.addEventListener("click", () => {
+
+    let playerChoice = scissorsButton.value;
+    let result = playRound(playerChoice, getComputerChoice());
+    let scissorsResult = document.createElement("p");
+    scissorsResult.textContent = result;
+    gameResultsDiv.appendChild(scissorsResult);
+    
 });
 
 
