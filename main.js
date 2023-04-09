@@ -88,7 +88,7 @@ let scissorsButton = document.querySelector("#scissors");
 //Add event listeners to buttons.
 rockButton.addEventListener("click", () => {
 
-    let playerChoice = rockButton.value;
+    let playerChoice = rockButton.id;
     let result = playRound(playerChoice, getComputerChoice());
     let rockResult = document.createElement("p");
     rockResult.textContent = result;
@@ -98,7 +98,7 @@ rockButton.addEventListener("click", () => {
 
 paperButton.addEventListener("click", () => {
 
-    let playerChoice = paperButton.value;
+    let playerChoice = paperButton.id;
     let result = playRound(playerChoice, getComputerChoice());
     let paperResult = document.createElement("p");
     paperResult.textContent = result;
@@ -108,7 +108,7 @@ paperButton.addEventListener("click", () => {
 
 scissorsButton.addEventListener("click", () => {
 
-    let playerChoice = scissorsButton.value;
+    let playerChoice = scissorsButton.id;
     let result = playRound(playerChoice, getComputerChoice());
     let scissorsResult = document.createElement("p");
     scissorsResult.textContent = result;
