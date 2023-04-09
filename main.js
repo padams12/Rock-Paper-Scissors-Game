@@ -88,7 +88,11 @@ let scissorsButton = document.querySelector("#scissors");
 rockButton.addEventListener("click", () => {
 
     let playerChoice = rockButton.value;
-    playRound(playerChoice);
+    let result = playRound(playerChoice);
+    let rockResult = document.createElement("p");
+    rockResult.textContent = result;
+    
+    
 
 
 });
