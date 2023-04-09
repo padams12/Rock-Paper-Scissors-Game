@@ -79,7 +79,22 @@ function playRound(playerSelection, computerSelection) {
         }
 }
 
-function game() {
+// Select buttons.
+let rockButton = document.querySelector("#rock");
+let paperButton = document.querySelector("#paper");
+let scissorsButton = document.querySelector("#scissors");
+
+//Add event listeners to buttons.
+rockButton.addEventListener("click", () => {
+
+    let playerChoice = rockButton.value;
+    playRound(playerChoice);
+
+
+});
+
+
+/* function game() {
 
     let playerWins = [];
     let computerWins = [];
@@ -141,3 +156,4 @@ function game() {
     }
 }
 
+*/
