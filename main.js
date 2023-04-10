@@ -84,6 +84,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
 // Select buttons.
 let rockButton = document.querySelector("#rock");
 let paperButton = document.querySelector("#paper");
@@ -106,7 +107,14 @@ rockButton.addEventListener("click", () => {
 
         computerWins += 1;
         computerScorePTag.textContent = "";
+
+        if (computerWins == 5) {
+            computerScorePTag.textContent = `Computer wins the round with ${computerWins} wins!`;
+            
+        }
+
         computerScorePTag.textContent = `Computer Score: ${computerWins}.`;
+        clearGame();
     }
 
     // Else the player won.
@@ -114,9 +122,15 @@ rockButton.addEventListener("click", () => {
 
         playerWins += 1;
         playerScorePTag.textContent = "";
-        playerScorePTag.textContent = `Player score: ${playerWins}`;
-    }
 
+        if (playerWins == 5) {
+            computerScorePTag.textContent = `Player wins the round with ${playerWins} wins!`;
+            
+        }
+
+        playerScorePTag.textContent = `Player score: ${playerWins}`;
+        clearGame();
+    }
 
 });
 
