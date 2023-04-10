@@ -1,5 +1,9 @@
 const TURN_OPTIONS = ["rock", "paper", "scissors"];
 const gameResultsDiv = document.querySelector("#results");
+const playerScorePTag = document.querySelector("#playerScoreCount");
+const computerScorePTag = document.querySelector("#computerScoreCount");
+let playerWins = 0;
+let computerWins = 0;
 
 function getComputerChoice() {
 
@@ -10,74 +14,74 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-        playerSelection = playerSelection.toLowerCase();
-        computerSelection = computerSelection.toLowerCase();
-        
-        if (playerSelection == "rock") {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
 
-            if (computerSelection == "paper") {
+    if (playerSelection == "rock") {
 
-                let winner = `Computer wins! Player chose ${playerSelection} and computer beat it with ${computerSelection}.`;
-                return winner;
-            }
+        if (computerSelection == "paper") {
 
-            else if (computerSelection == playerSelection) {
-
-                let winner = `Tie game. Both computer and player chose ${playerSelection}.`;
-                return winner;
-            }
-
-            else {
-
-                let winner = `Player wins! Player chose ${playerSelection} and computer lost by choosing ${computerSelection}.`;
-                return winner;
-            }
-
+            let winner = `Computer wins! Player chose ${playerSelection} and computer beat it with ${computerSelection}.`;
+            return winner;
         }
 
-        if (playerSelection == "paper") {
+        else if (computerSelection == playerSelection) {
 
-            if (computerSelection == "scissors") {
-
-                let winner = `Computer wins! Player chose ${playerSelection} and computer beat it with ${computerSelection}.`;
-                return winner;
-            }
-
-            else if (computerSelection == playerSelection) {
-
-                let winner = `Tie game. Both computer and player chose ${playerSelection}.`;
-                return winner;
-            }
-
-            else {
-
-                let winner = `Player wins! Player chose ${playerSelection} and computer lost by choosing ${computerSelection}.`;
-                return winner;
-            }
-
+            let winner = `Tie game. Both computer and player chose ${playerSelection}.`;
+            return winner;
         }
 
-        if (playerSelection == "scissors") {
+        else {
 
-            if (computerSelection == "rock") {
-
-                let winner = `Computer wins! Player chose ${playerSelection} and computer beat it with ${computerSelection}.`;
-                return winner;
-            }
-
-            else if (computerSelection == playerSelection) {
-
-                let winner = `Tie game. Both computer and player chose ${playerSelection}.`;
-                return winner;
-            }
-
-            else {
-
-                let winner = `Player wins! Player chose ${playerSelection} and computer lost by choosing ${computerSelection}.`;
-                return winner;
-            }
-
+            let winner = `Player wins! Player chose ${playerSelection} and computer lost by choosing ${computerSelection}.`;
+            return winner;
         }
+
+    }
+
+    if (playerSelection == "paper") {
+
+        if (computerSelection == "scissors") {
+
+            let winner = `Computer wins! Player chose ${playerSelection} and computer beat it with ${computerSelection}.`;
+            return winner;
+        }
+
+        else if (computerSelection == playerSelection) {
+
+            let winner = `Tie game. Both computer and player chose ${playerSelection}.`;
+            return winner;
+        }
+
+        else {
+
+            let winner = `Player wins! Player chose ${playerSelection} and computer lost by choosing ${computerSelection}.`;
+            return winner;
+        }
+
+    }
+
+    if (playerSelection == "scissors") {
+
+        if (computerSelection == "rock") {
+
+            let winner = `Computer wins! Player chose ${playerSelection} and computer beat it with ${computerSelection}.`;
+            return winner;
+        }
+
+        else if (computerSelection == playerSelection) {
+
+            let winner = `Tie game. Both computer and player chose ${playerSelection}.`;
+            return winner;
+        }
+
+        else {
+
+            let winner = `Player wins! Player chose ${playerSelection} and computer lost by choosing ${computerSelection}.`;
+            return winner;
+        }
+
+    }
 }
 
 // Select buttons.
@@ -94,6 +98,23 @@ rockButton.addEventListener("click", () => {
     let rockResult = document.createElement("p");
     rockResult.textContent = result;
     gameResultsDiv.appendChild(rockResult);
+    let winner = result[0];
+    winner = winner.toLowerCase();
+
+    if (winner == "c") {
+
+        computerWins += 1;
+        computerScorePTag.textContent = "";
+        computerScorePTag.textContent = `Computer Score: ${computerWins}.`;
+    }
+
+    else {
+
+        playerWins += 1;
+        playerScorePTag.textContent = "";
+        playerScorePTag.textContent = `Player score: ${playerWins}`;
+    }
+
 
 });
 
@@ -104,7 +125,7 @@ paperButton.addEventListener("click", () => {
     let paperResult = document.createElement("p");
     paperResult.textContent = result;
     gameResultsDiv.appendChild(paperResult);
-    
+
 });
 
 scissorsButton.addEventListener("click", () => {
@@ -114,13 +135,21 @@ scissorsButton.addEventListener("click", () => {
     let scissorsResult = document.createElement("p");
     scissorsResult.textContent = result;
     gameResultsDiv.appendChild(scissorsResult);
-    
+
 });
 
 clearHistorySingleGameButton.addEventListener("click", () => {
 
     gameResultsDiv.textContent = "";
-})
+    playerScorePTag.textContent = "";
+    computerScorePTag.textContent = "";
+    playerWins = 0;
+    computerWins = 0;
+    
+
+});
+
+
 
 /* function game() {
 
