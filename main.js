@@ -2,6 +2,7 @@ const TURN_OPTIONS = ["rock", "paper", "scissors"];
 const gameResultsDiv = document.querySelector("#results");
 const playerScorePTag = document.querySelector("#playerScoreCount");
 const computerScorePTag = document.querySelector("#computerScoreCount");
+const scoreDiv = document.querySelector("#score");
 let playerWins = 0;
 let computerWins = 0;
 
@@ -86,8 +87,22 @@ function playRound(playerSelection, computerSelection) {
 
 function clearGame() {
 
-    playerWins = 0;
-    computerWins = 0;
+    let playAgainButton = document.createElement("button");
+    playAgainButton.textContent = "Play Again?";
+    playAgainButton.style.cssText = "background-color: yellow; width: 12px; height: 12px;";
+    playAgainButton.addEventListener("click", () => {
+
+        gameResultsDiv.textContent = "";
+        playerScorePTag.textContent = "";
+        computerScorePTag.textContent = "";
+        playerWins = 0;
+        computerWins = 0;
+        scoreDiv.removeChild(playAgainButton);
+
+    });
+
+    scoreDiv.appendChild(playAgainButton);
+
 
 }
 
@@ -116,26 +131,34 @@ rockButton.addEventListener("click", () => {
 
         if (computerWins == 5) {
             computerScorePTag.textContent = `Computer wins the round with ${computerWins} wins!`;
+            clearGame();
             
         }
 
-        computerScorePTag.textContent = `Computer Score: ${computerWins}.`;
-        clearGame();
+        else {
+
+            computerScorePTag.textContent = `Computer Score: ${computerWins}.`;
+        }
     }
 
     // Else the player won.
-    else {
+    else if (winner == "p") {
 
         playerWins += 1;
         playerScorePTag.textContent = "";
 
         if (playerWins == 5) {
-            computerScorePTag.textContent = `Player wins the round with ${playerWins} wins!`;
+            playerScorePTag.textContent = `Player wins the round with ${playerWins} wins!`;
+            clearGame();
             
         }
 
-        playerScorePTag.textContent = `Player score: ${playerWins}`;
-        clearGame();
+        else {
+
+            playerScorePTag.textContent = `Player score: ${playerWins}`;
+
+        }
+
     }
 
 });
@@ -147,6 +170,7 @@ paperButton.addEventListener("click", () => {
     let paperResult = document.createElement("p");
     paperResult.textContent = result;
     gameResultsDiv.appendChild(paperResult);
+    
 
 });
 
