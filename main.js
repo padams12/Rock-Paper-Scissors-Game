@@ -84,6 +84,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function clearGame() {
+
+    playerWins = 0;
+    computerWins = 0;
+
+}
 
 // Select buttons.
 let rockButton = document.querySelector("#rock");
