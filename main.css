@@ -6,3 +6,24 @@ button {
 
     background-color:lightgreen;
 }
+
+#mainDiv {
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#gameContent {
+
+    border: 12px solid rgb(116, 116, 113);
+    padding: 12px;
+}
+
+#mainDiv #score {
+
+    display: flex;
+    justify-content: space-evenly;
+    border: 12px solid rgb(116, 116, 113);
+    padding: 12px;
+    width: 400px;
+}
