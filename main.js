@@ -101,6 +101,7 @@ rockButton.addEventListener("click", () => {
     let winner = result[0];
     winner = winner.toLowerCase();
 
+    // Winner "c" is the computer.
     if (winner == "c") {
 
         computerWins += 1;
@@ -108,6 +109,7 @@ rockButton.addEventListener("click", () => {
         computerScorePTag.textContent = `Computer Score: ${computerWins}.`;
     }
 
+    // Else the player won.
     else {
 
         playerWins += 1;
